@@ -1,0 +1,448 @@
+/* === Reset & Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0f2ff, #f7fafc);
+  color: #333;
+  padding: 24px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Container === */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* === Header === */
+h1 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 3rem;
+  color: #2563eb;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  margin: 14px auto 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #3b82f6aa;
+  transition: width 0.3s ease;
+}
+
+h1:hover::after {
+  width: 120px;
+}
+
+/* === Blog Form === */
+.blog-form {
+  background: #ffffffdd;
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.07),
+    0 0 20px rgba(37, 99, 235, 0.15);
+  margin-bottom: 2.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid #e0e7ff;
+  transition: box-shadow 0.35s ease;
+}
+
+.blog-form:hover {
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.12),
+    0 0 30px rgba(37, 99, 235, 0.25);
+}
+
+.blog-form input,
+.blog-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 1.2rem;
+  border: 1.8px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 500;
+  color: #1e293b;
+  background: #f9fafb;
+  box-shadow: inset 1px 1px 4px #ffffffaa;
+}
+
+.blog-form input:focus,
+.blog-form textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.4),
+    inset 1px 1px 4px #ffffffcc;
+  background: #ffffff;
+}
+
+.blog-form textarea {
+  min-height: 140px;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.blog-form button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow:
+    0 4px 8px rgba(37, 99, 235, 0.5),
+    0 0 12px rgba(37, 99, 235, 0.4);
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-form button:hover {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  transform: translateY(-3px);
+  box-shadow:
+    0 6px 14px rgba(37, 99, 235, 0.7),
+    0 0 20px rgba(37, 99, 235, 0.6);
+}
+
+/* Button ripple effect */
+.blog-form button::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.8s ease;
+}
+
+.blog-form button:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* === Blog List === */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* === Blog Post Card === */
+.blog-post {
+  background: #fff;
+  padding: 1.8rem 2rem;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.08),
+    0 0 10px rgba(37, 99, 235, 0.1);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.25s ease;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-post:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.12),
+    0 0 18px rgba(37, 99, 235, 0.3);
+}
+
+.blog-post h2 {
+  margin-bottom: 0.7rem;
+  color: #1e40af;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post p {
+  margin-bottom: 0.7rem;
+  line-height: 1.7;
+  color: #334155;
+  font-weight: 500;
+  white-space: pre-wrap;
+}
+
+.blog-post .author {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
+  text-align: right;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.blog-post .likes {
+  font-weight: 600;
+  color: #2563eb;
+  margin-top: 0.3rem;
+}
+
+/* Buttons container */
+.btn-group {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* Common button styles */
+.btn {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Like button */
+.btn-like {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-like:hover {
+  background-color: #1e40af;
+  transform: scale(1.05);
+}
+
+/* Delete button */
+.btn-delete {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #b91c1c;
+  transform: scale(1.05);
+}
+
+/* Edit textarea (if you add editing feature) */
+.edit-textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  margin-bottom: 0.8rem;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.3s ease;
+}
+
+.edit-textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}
+
+/* No blogs message */
+.no-blogs {
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive typography scaling */
+@media (max-width: 640px) {
+  body {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  .blog-post {
+    padding: 1.4rem 1.6rem;
+    border-radius: 12px;
+  }
+
+  .blog-post h2 {
+    font-size: 1.4rem;
+  }
+}
+/* === Smooth Fade-in Animation for Blog Posts === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blog-post {
+  animation: fadeInUp 0.5s ease forwards;
+  will-change: transform, opacity;
+}
+
+/* === Button Ripple Effect === */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 1s ease;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btn:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* === Glowing Hover Shadow on Blog Cards === */
+.blog-post:hover {
+  box-shadow:
+    0 16px 40px rgba(37, 99, 235, 0.35),
+    0 0 25px rgba(59, 130, 246, 0.45);
+  transform: translateY(-8px);
+}
+
+/* === Subtle Gradient Background for Buttons === */
+.btn-like {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.6);
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.6);
+}
+
+/* === Smooth transitions on all interactive elements === */
+.blog-form input,
+.blog-form textarea,
+.btn,
+.blog-post {
+  transition: all 0.3s ease;
+}
+
+/* === Custom Scrollbar for blog list === */
+.blog-list {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #2563eb #e0e7ff;
+}
+
+.blog-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.blog-list::-webkit-scrollbar-track {
+  background: #e0e7ff;
+  border-radius: 10px;
+}
+
+.blog-list::-webkit-scrollbar-thumb {
+  background-color: #2563eb;
+  border-radius: 10px;
+  border: 2px solid #e0e7ff;
+}
+
+/* === Subtle Text Shadow for Titles === */
+.blog-post h2 {
+  text-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);
+}
+
+/* === Add subtle underline animation on blog titles === */
+.blog-post h2 {
+  position: relative;
+  cursor: default;
+}
+
+.blog-post h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 0;
+  background: #2563eb;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.blog-post:hover h2::after {
+  width: 50%;
+}
+
+/* === Responsive adjustments for smaller devices === */
+@media (max-width: 480px) {
+  .blog-form {
+    padding: 1.5rem;
+  }
+
+  .blog-post {
+    padding: 1rem 1.2rem;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}
