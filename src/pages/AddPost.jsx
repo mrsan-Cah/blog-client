@@ -8,7 +8,7 @@ const AddPost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/posts", {
+      const response = await axios.post("https://blog-server-ak2s.onrender.com/api/posts", {
         title,
         content,
       });
